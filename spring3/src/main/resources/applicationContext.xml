@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="helloWorld1" class="cap.service.impl.HelloWorldBeanFactory" factory-method="createHelloWorldBean"></bean>
+    <bean id="helloWorldFactory" class="cap.service.impl.HelloWorldBeanFactory"/>
+    <bean id="helloWorld2" factory-bean="helloWorldFactory" factory-method="createHelloWorldBean2"/>
+    <bean id="helloWorld3" class="cap.service.impl.HelloWorldImpl" scope="singleton"></bean>
+</beans>
