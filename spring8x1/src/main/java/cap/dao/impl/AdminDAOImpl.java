@@ -16,6 +16,9 @@ import java.util.List;
 import java.util.Map;
 
 @Repository(value = "adminDAO")
+//@Transactional
+//使用@Transactional 注解必须启用applicationContext.xml中的<tx:annotation-driven/>标签
+
 public class AdminDAOImpl implements AdminDAO {
 
     private class MyRowMapper implements RowMapper<Admin> {
@@ -32,6 +35,7 @@ public class AdminDAOImpl implements AdminDAO {
 
     @Resource
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
 
     @Override
     public List<Admin> findAdmins() {
@@ -66,6 +70,8 @@ public class AdminDAOImpl implements AdminDAO {
     public int addAdmin(Admin admin) {
         String sql = "insert into admin(username,password) values(:username,:password)";
         SqlParameterSource sqlParameterSource = new BeanPropertySqlParameterSource(admin);
-        return namedParameterJdbcTemplate.update(sql, sqlParameterSource);
+        int res = namedParameterJdbcTemplate.update(sql, sqlParameterSource);
+        int k = 10 / 0;
+        return res;
     }
 }
