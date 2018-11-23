@@ -1,11 +1,24 @@
 package cap.bean;
 
+import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.Date;
+
+@Entity
+@Table(name = "m_product", catalog = "cdtu")
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "pid", nullable = true, length = 11)
     private int id;
     private String name;
     private String serialNumber;
     private double price;
+    @Transient
     private int stock;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date timestamp;
 
     public Integer getId() {
         return id;
@@ -45,5 +58,13 @@ public class Product {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 }

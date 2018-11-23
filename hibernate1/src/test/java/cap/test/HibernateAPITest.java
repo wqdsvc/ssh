@@ -1,13 +1,12 @@
 package cap.test;
 
 import cap.bean.Product;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.junit.Before;
+import org.hibernate.Session;
 import org.junit.Test;
-
 
 public class HibernateAPITest {
     private SessionFactory sessionFactory;

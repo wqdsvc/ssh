@@ -8,13 +8,12 @@ import org.hibernate.Session;
 import org.junit.Before;
 import org.junit.Test;
 
-
 public class HibernateTest {
     private SessionFactory sessionFactory;
 
     @Before
     public void init() {
-        Configuration configuration = new org.hibernate.cfg.Configuration().configure();
+        Configuration configuration = new Configuration().configure();
         sessionFactory = configuration.buildSessionFactory();
     }
 
@@ -25,11 +24,12 @@ public class HibernateTest {
         Product product = new Product();
         product.setStock(12);
         product.setPrice(33.0);
-        product.setName("jsp");
-        product.setSerialNumber("xxxxx");
+        product.setName("jsp ");
+        product.setSerialNumber("hhhhh");
         session.save(product);
         tx.commit();
         session.close();
+
     }
 
     @Test
@@ -39,4 +39,5 @@ public class HibernateTest {
         System.out.println(product.getName() + ":" + product.getSerialNumber());
         session.close();
     }
+
 }

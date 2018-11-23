@@ -41,11 +41,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.39</version>
         </dependency>
-        <dependency>
-            <groupId>javax.transaction</groupId>
-            <artifactId>jta</artifactId>
-            <version>1.0.1B</version>
-        </dependency>
     </dependencies>
 
     <build>
